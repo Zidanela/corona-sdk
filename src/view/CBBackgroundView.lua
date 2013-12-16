@@ -27,8 +27,10 @@ function CBBackgroundView:tryLayout()
     local dif = self.cbProxy.getForcedOrientationDifference()
     local w, h = dif.flipIfOdd(display.contentWidth, display.contentHeight)
     if self.backgroundView then self.backgroundView:removeSelf() end
-    self.backgroundView = display.newRect(0, 0, w, h)
-    self.backgroundView:setFillColor(0, 0, 0, 0xA0)
+self.backgroundView = display.newRect(w*.5, h*.5, w, h)
+
+
+    self.backgroundView:setFillColor(0, 1, 0, .6)
     self.group:insert(self.backgroundView)
 end
 

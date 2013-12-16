@@ -36,8 +36,9 @@ local CBActionButton = class(function(self, cbProxy, text, height, onClick)
 
     self.group:insert(self.labelS)
     self.group:insert(self.label)
-    labelS:setReferencePoint(display.CenterReferencePoint)
-    label:setReferencePoint(display.CenterReferencePoint)
+    labelS.anchorX, labelS.anchorY = .5, .5
+    label.anchorX, label.anchorY = .5,.5
+
 
     self.width = math.max(48, label.width + 2 * 12 * density)
 
@@ -115,7 +116,7 @@ function CBActionButton:loadImage(name)
     local image = display.newImage(self.group, file, system.ResourceDirectory)
     image.yScale = self.height / image.height
     image.xScale = image.yScale
-    image:setReferencePoint(display.TopLeftReferencePoint)
+    image.anchorX, image.anchorY = 0,0
     return image
 end
 

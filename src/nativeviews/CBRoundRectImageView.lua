@@ -37,14 +37,14 @@ local CBRoundRectImageView = class(function(self, cbProxy, bitmap)
       self:createMaskFile(function(name)
           self.imageMask = graphics.newMask(name, system.TemporaryDirectory)
           self.group:setMask(self.imageMask)
-          self.group:setReferencePoint(display.CenterReferencePoint)
+          self.group.anchorX, self.group.anchorY = .5,.5
           self.group.maskX = self.group.x
           self.group.maskY = self.group.y
       end)  --]]
     local file_name = cbProxy.getPackagedImageFileName("__chartboost_rr.png")
     self.imageMask = graphics.newMask(file_name, system.ResourceDirectory)
     self.image:setMask(self.imageMask)
-    self.image:setReferencePoint(display.CenterReferencePoint)
+    self.image.anchorX, self.image.anchorY = .5,.5
     local ratio = 1 --120.0 / 114.0 -- image is 120px square with a 3px border
     self.image.maskScaleX = ratio * self.image.contentWidth / 114
     self.image.maskScaleY = ratio * self.image.contentHeight / 114

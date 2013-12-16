@@ -9,16 +9,19 @@ local cb = require "ChartboostSDK.chartboost"
 local background
 local onOrientationChange = function(orientation)
     if background then background:removeSelf() end
-    background = display.newRect(0, 0, display.contentWidth, display.contentHeight)
-    background:setFillColor(96, 96, 255, 255)
+    background = display.newRect(display.contentWidth*.5, display.contentHeight*.5, display.contentWidth, display.contentHeight)
+    background:setFillColor(0, 0, 0, 1)
     background:toBack()
 end
 onOrientationChange()
 Runtime:addEventListener("orientation", onOrientationChange)
 
 -- test app
-local appId = "4f7b433509b6025804000002"
-local appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+local appId = "52af2e1c9ddc3563bd9a413c"
+local appSignature = "7239de176fc92124faa363f2155fe52249f2dd6c"
+local orientation = cb.orientations.PORTRAIT
+--cb.setOrientation(orientation)
+
 
 local delegate = {
     shouldRequestInterstitial = function(location) print("Chartboost: shouldRequestInterstitial " .. location .. "?"); return true end,

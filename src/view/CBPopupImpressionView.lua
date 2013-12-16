@@ -19,9 +19,11 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
     local dif = cbProxy.getForcedOrientationDifference()
     local w, h = dif.flipIfOdd(display.contentWidth, display.contentHeight)
 
+
     -- block clicks
-    self.clickBlocker = display.newRect(0, 0, w, h)
-    self.clickBlocker.alpha = 0
+self.clickBlocker = display.newRect(w*.5, h*.5, w, h)
+    self.clickBlocker.alpha = 1
+self.clickBlocker:setFillColor(1,0,0)
     self.clickBlocker.isHitTestable = true -- Only needed if alpha is 0
     self.clickBlocker:addEventListener("touch", function() return true end)
     self.clickBlocker:addEventListener("tap", function() return true end)
@@ -31,6 +33,8 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
     self.backgroundView = CBBackgroundView(self.cbProxy)
     self.group:insert(self.backgroundView.group)
     self.group:insert(self.content.group)
+self.group.anchorX, self.group.anchorY = .5,.5
+self.group.anchorChildren = true
 
     local function updateWindow()
         self.lastOrientationDiff = self.cbProxy.getForcedOrientationDifference()
@@ -46,9 +50,11 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
             self.group.x = display.contentCenterX - display.contentHeight/2 + (display.contentHeight - display.contentWidth)/2
             self.group.y = display.contentCenterY + display.contentWidth/2 + (display.contentHeight - display.contentWidth) /2
         else
+            print('cententCenterX: '..display.contentCenterX..'  contentWidth: '..display.contentWidth)
             self.group.x = display.contentCenterX - display.contentWidth/2
             self.group.y = display.contentCenterY - display.contentHeight/2
         end
+
     end
     updateWindow()
     self.onOrientationChange = function(orientation)
