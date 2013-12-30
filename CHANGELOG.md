@@ -8,7 +8,7 @@ Upgrade Chartboost Plugin to work with Corona SDK Graphics 2.0
 
 * sample/main.lua
 	* changed line 12: switched x,y coordinates to be the center of the screen, in graphics 2.0 rectangle's anchor points are in the center verus being in the top left
-	* Switched app ID to use one set up just for testing
+	* Switched app ID to use one set up just for testing CHANGE BACK!!
 	
 
 
@@ -16,7 +16,6 @@ Upgrade Chartboost Plugin to work with Corona SDK Graphics 2.0
 * corona-sdk/src/nativeviews/CBActionButton.lua:
 	* Changed lines: 39,40,119
 		* Switched ReferencePoints to Graphics 2.0 anchor points 
-
 
 * corona-sdk/src/nativeviews/CBMoreAppsRegularCell.lua:
 	* Changed lines: 38,69,77
@@ -46,3 +45,19 @@ Upgrade Chartboost Plugin to work with Corona SDK Graphics 2.0
 
 	* Changed line: 243
 		* :setColor is deprecated, changed to :setStrokeColor
+
+* corona-sdk/src/view/CBPopupImpressionView.lua:
+	* Changed line: 24
+		* Changed coordinates to be center based instead of top left (changed in Graphics 2.0)
+
+* corona-sdk/src/view/CBBackgroundView.lua:
+	* Changed line: 30
+		* Changed coordinates to be center based instead of top left (changed in Graphics 2.0)
+	* Changed line: 31
+		* Changed 0xA0 to .6, the old value wouldn't show it as transparent.  Perhaps related to the change to percentage based color values in Graphics 2.0?
+
+* corona-sdk/src/view/CBMoreAppsCell.ua
+	* Changed line: 36
+		* Changed gradient to new Graphics 2.0 syntax, newGradient() is deprecated
+
+		

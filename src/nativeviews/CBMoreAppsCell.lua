@@ -8,8 +8,8 @@
 --   Supply a height and a method to listen for clicks and the method returns a row for use in tableview widgets
 --
 
-local COLOR_GRADIENT_TOP = {0xE9, 0xE9, 0xE9}
-local COLOR_GRADIENT_BOTTOM = {0xDC, 0xDC, 0xDC}
+local COLOR_GRADIENT_TOP = {0, 0, .914}
+local COLOR_GRADIENT_BOTTOM = {0, 0, .863}
 
 local function baseCell(rowHeight, onClick)
     assert(type(rowHeight) == "number", "First parameter 'rowHeight' must be a number.")
@@ -33,7 +33,7 @@ local function baseCell(rowHeight, onClick)
 
         -- gradient BG
         local bg = display.newRect(rowGroup, 0, 0, row.width, row.height)
-        local gradient = graphics.newGradient(COLOR_GRADIENT_TOP, COLOR_GRADIENT_BOTTOM)
+        local gradient = {type='gradient',color1=COLOR_GRADIENT_TOP,color2=COLOR_GRADIENT_BOTTOM}
         bg:setFillColor(gradient)
 
         -- borders
