@@ -7,8 +7,12 @@ Upgrade Chartboost Plugin to work with Corona SDK Graphics 2.0
 
 
 * sample/main.lua
-	* changed line 12: switched x,y coordinates to be the center of the screen, in graphics 2.0 rectangle's anchor points are in the center verus being in the top left
-	* Switched app ID to use one set up just for testing CHANGE BACK!!
+	* changed line 12: 
+		* switched x,y coordinates to be the center of the screen, in graphics 2.0 rectangle's anchor points are in the center verus being in the top left
+	* changed line 13:
+		* Switched color to use the decimal rgba format of Graphics 2.0
+	* Changed lines 60,79,92,110,124,139,155,180:
+		* Changed the button labels to be white on the blue background
 	
 
 

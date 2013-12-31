@@ -10,18 +10,15 @@ local background
 local onOrientationChange = function(orientation)
     if background then background:removeSelf() end
     background = display.newRect(display.contentWidth*.5, display.contentHeight*.5, display.contentWidth, display.contentHeight)
-    background:setFillColor(0, 0, 0, 1)
+    background:setFillColor(.376,.376, 1, 1)
     background:toBack()
 end
 onOrientationChange()
 Runtime:addEventListener("orientation", onOrientationChange)
 
 -- test app
-local appId = "52af2e1c9ddc3563bd9a413c"
-local appSignature = "7239de176fc92124faa363f2155fe52249f2dd6c"
-local orientation = cb.orientations.PORTRAIT
---cb.setOrientation(orientation)
-
+local appId = "4f7b433509b6025804000002"
+local appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
 
 local delegate = {
     shouldRequestInterstitial = function(location) print("Chartboost: shouldRequestInterstitial " .. location .. "?"); return true end,
@@ -60,6 +57,7 @@ local showAd = widget.newButton{
     width = 136, height = 44,
     label = "Show Interstitial",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         local msg = "Chartboost: Loading Interstitial"
         if cb.hasCachedInterstitial() then
@@ -77,6 +75,7 @@ local cacheAd = widget.newButton{
     width = 136, height = 44,
     label = "Preload Interstitial",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         print("Chartboost: Caching Interstitial")
         cb.cacheInterstitial()
@@ -90,6 +89,7 @@ local showMore = widget.newButton{
     width = 136, height = 44,
     label = "Show More Apps",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         local msg = "Chartboost: Loading More Apps"
         if cb.hasCachedMoreApps() then
@@ -107,6 +107,7 @@ local cacheAd = widget.newButton{
     width = 136, height = 44,
     label = "Preload More Apps",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         print("Chartboost: Caching More Apps")
         cb.cacheMoreApps()
@@ -120,6 +121,7 @@ local clearPreload = widget.newButton{
     width = 136, height = 44,
     label = "Clear Preload Data",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         print("Chartboost: Clearing preload ad data")
         cb.clearCache()
@@ -134,6 +136,7 @@ local recordPurchase = widget.newButton{
     width = 136, height = 44,
     label = "Record Purchase",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         print("Chartboost: Purchase Clicked!")
         local meta = {fakemeta1 = 5, fakemeta2 = "string"}
@@ -149,6 +152,7 @@ local trackEvent = widget.newButton{
     width = 136, height = 44,
     label = "Track Event",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         print("Chartboost: Track Event Clicked!")
         local meta = {fakeeventmeta1 = 5, fakeeventmeta2 = "string"}
@@ -173,6 +177,7 @@ orientation = widget.newButton{
     width = 272, height = 44,
     label = "Forced Orientation: None",
     fontSize = 14,
+    labelColor = {default={1,1,1}},
     onRelease = function()
         forcedOrient = orientCycle[forcedOrient]
         orientation:setLabel("Forced Orientation: " .. forcedOrient.printName)
