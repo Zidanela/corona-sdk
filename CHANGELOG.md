@@ -60,8 +60,28 @@ Upgrade Chartboost Plugin to work with Corona SDK Graphics 2.0
 	* Changed line: 31
 		* Changed 0xA0 to .6, the old value wouldn't show it as transparent.  Perhaps related to the change to percentage based color values in Graphics 2.0?
 
-* corona-sdk/src/view/CBMoreAppsCell.ua
+* corona-sdk/src/view/CBMoreAppsCell.lua
 	* Changed line: 36
 		* Changed gradient to new Graphics 2.0 syntax, newGradient() is deprecated
+	* Changed lines: 11, 12, 41, 43
+		* Graphics 2.0 requires RGBA in decimal form, converted from old way to decimal
+	* Changed lines: 35, 40, 42
+		* Changed x,y (unless it was 0) to be center row bases as per the changed in Graphics 2.0
+	* Changed line: 42
+		* Changed the y position from row.height -1, to row.height -2, for some reason 1 pixel wasn't enough and it would on be seen as a flicker on scroll.  Changing it to -2 pixels seems to let it stick
 
-		
+* corona-sdk/src/view/CBActionButton.lua
+	* Changed lines: 16, 17 
+		* Graphics 2.0 requires RGBA in decimal form, converted from old way to decimal
+	* Changed line: 78
+		* Rectangles anchor points are now at the center versus top/left, changed x,y parameters to reflect that
+	* Changed lines: 30, 34
+		* setTextColor is deprecated, using setFillColor now
+
+* corona-sdk/src/view/CBMoreAppsViewProtocol.lua
+	* Changed lines: 26
+		* Graphics 2.0 requires RGBA in decimal form, converted from old way to decimal
+
+* corona-sdk/src/view/CBMoreAppsRegularCell.lua
+	* Changed lines: 72, 80
+		* changed colors and alpha value to decimal, and changed to setFillColor since setTextColor is deprecated
