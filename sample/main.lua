@@ -5,6 +5,7 @@
 
 local widget = require "widget"
 local cb = require "ChartboostSDK.chartboost"
+local appId,appSignature
 
 local background
 local onOrientationChange = function(orientation)
@@ -17,8 +18,15 @@ onOrientationChange()
 Runtime:addEventListener("orientation", onOrientationChange)
 
 -- test app
-local appId = "4f7b433509b6025804000002"
-local appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+if system.getInfo("platformName") == "iPhone OS" then
+    -- iPhone Sample App ID
+    appId = "4f21c409cd1cb2fb7000001b"
+    appSignature = "92e2de2fd7070327bdeb54c15a5295309c6fcd2d"
+else
+    -- Android Sample App ID
+    appId = "4f7b433509b6025804000002"
+    appSignature = "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+end
 
 local delegate = {
     shouldRequestInterstitial = function(location) print("Chartboost: shouldRequestInterstitial " .. location .. "?"); return true end,
@@ -45,10 +53,12 @@ local delegate = {
                     if error then print("    Error: " .. error) end end
 }
 
-cb.create{appId = appId,
+cb.create{
+    appId = appId,
     appSignature = appSignature,
     delegate = delegate,
-    appBundle = "com.chartboost.cbtest"}
+    appBundle = "com.chartboost.cbtest"
+}
 cb.startSession()
 
 local showAd = widget.newButton{

@@ -1,7 +1,8 @@
 The Chartboost SDK is the cornerstone of our network: It provides the functionality for showing ads and More Apps pages, and supplies our analytics system with detailed information about campaign performance. 
 
-###Current Release: 3.2.3
+### Current Release: 3.2.3
 
+(01-02-2014) The Chartboost Corona SDK has been updated to support Corona graphics 2.0 in Corona v2013.2100 and up. A special thanks to @Fernker for doing an amazing job *all on his own* to make this update! Please discuss any issues with this update here on our github repo.
 (10-07-2013) The Chartboost Corona SDK is now mostly open sourced! Read about contributing [here](https://github.com/ChartBoost/corona-sdk/wiki/Contributing-to-SDK-Development) and check out known issues [here](https://github.com/ChartBoost/corona-sdk/issues).
 
 ---
