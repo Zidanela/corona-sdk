@@ -32,8 +32,8 @@ function CBLoadingView:tryLayout()
     if not self.label then
         self.label = display.newText("Loading...", 0, 0, native.systemFontBold, 18)
         self.group:insert(self.label)
-        self.label:setReferencePoint(display.CenterReferencePoint)
-        self.label:setTextColor(255, 255, 255, 255)
+        self.label.anchorX, self.label.anchorY = .5,.5
+        self.label:setFillColor(1, 1, 1, 1)
     end
     self.label.x = w*0.5;
     self.label.y = h*0.5 - margin * 0.65

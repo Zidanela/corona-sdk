@@ -20,7 +20,7 @@ local CBPopupImpressionView = class(function(self, cbProxy, content)
     local w, h = dif.flipIfOdd(display.contentWidth, display.contentHeight)
 
     -- block clicks
-    self.clickBlocker = display.newRect(0, 0, w, h)
+    self.clickBlocker = display.newRect(w*.5, h*.5, w, h)
     self.clickBlocker.alpha = 0
     self.clickBlocker.isHitTestable = true -- Only needed if alpha is 0
     self.clickBlocker:addEventListener("touch", function() return true end)

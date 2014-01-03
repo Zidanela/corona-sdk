@@ -13,8 +13,8 @@ local class = require "chartboost.libraries.lib.class"
 local CBUtility = require "chartboost.libraries.CBUtility"
 
 local FONT_SIZE = 16
-local COLOR_TEXT = {255, 255, 255}
-local COLOR_TEXT_SHADOW = {0x00, 0x4B, 0x73}
+local COLOR_TEXT = {1, 1, 1}
+local COLOR_TEXT_SHADOW = {0, .294, .451}
 
 local CBActionButton = class(function(self, cbProxy, text, height, onClick)
     self.cbProxy = cbProxy
@@ -27,17 +27,18 @@ local CBActionButton = class(function(self, cbProxy, text, height, onClick)
     local density = CBUtility.dpToPixels(1)
 
     local label = display.newText(self.text, 0, 0, native.systemFontBold, FONT_SIZE)
-    label:setTextColor(unpack(COLOR_TEXT))
+    label:setFillColor(unpack(COLOR_TEXT))
     self.label = label
 
     local labelS = display.newText(self.text, 1 * density, 1 * density, native.systemFontBold, FONT_SIZE)
-    labelS:setTextColor(unpack(COLOR_TEXT_SHADOW))
+    labelS:setFillColor(unpack(COLOR_TEXT_SHADOW))
     self.labelS = labelS
 
     self.group:insert(self.labelS)
     self.group:insert(self.label)
-    labelS:setReferencePoint(display.CenterReferencePoint)
-    label:setReferencePoint(display.CenterReferencePoint)
+    labelS.anchorX, labelS.anchorY = .5, .5
+    label.anchorX, label.anchorY = .5,.5
+
 
     self.width = math.max(48, label.width + 2 * 12 * density)
 
@@ -74,7 +75,7 @@ local CBActionButton = class(function(self, cbProxy, text, height, onClick)
     self.label.y = (self.imageOffM.contentHeight) / 2
 
     -- block clicks
-    self.clickBlocker = display.newRect(self.group, 0, 0, self.group.contentWidth, self.group.contentHeight)
+    self.clickBlocker = display.newRect(self.group, self.group.contentWidth*.5, self.group.contentHeight*.5, self.group.contentWidth, self.group.contentHeight)
     self.clickBlocker.alpha = 0
     self.clickBlocker.isHitTestable = true -- Only needed if alpha is 0
     local inBtn = false
@@ -115,7 +116,7 @@ function CBActionButton:loadImage(name)
     local image = display.newImage(self.group, file, system.ResourceDirectory)
     image.yScale = self.height / image.height
     image.xScale = image.yScale
-    image:setReferencePoint(display.TopLeftReferencePoint)
+    image.anchorX, image.anchorY = 0,0
     return image
 end
 

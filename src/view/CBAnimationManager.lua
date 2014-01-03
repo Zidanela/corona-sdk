@@ -117,7 +117,7 @@ local function doTransitionWithAnimationType(animType, impression, block, isInTr
         addParams(animParams, translateAnimation)
         transition.to(layer, animParams)
     elseif animType == CBAnimationType.CBAnimationTypeBounce then
-        layer:setReferencePoint(display.CenterReferencePoint)
+        layer.anchorX, layer.anchorY = .5,.5
         if (isInTransition) then
             scaleAnimation = CBAnimations.ScaleAnimation(0.6, 1.1, 0.6, 1.1)
             local animParams = {time = animDuration * 0.6, onComplete = function()
@@ -125,7 +125,7 @@ local function doTransitionWithAnimationType(animType, impression, block, isInTr
                 local animParams2 = {time = animDuration * (0.8 - 0.6), onComplete = function()
                     local scaleAnimation3 = CBAnimations.ScaleAnimation(0.9, 1, 0.9, 1)
                     local animParams3 = {time = animDuration * (0.9 - 0.8), onComplete = function()
-                        layer:setReferencePoint(display.TopLeftReferencePoint)
+                        layer.anchorX, layer.anchorY = 0, 0
                         listener()
                     end}
                     addParams(animParams3, scaleAnimation3)
