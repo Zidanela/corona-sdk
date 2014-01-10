@@ -141,9 +141,9 @@ diff = cb.differences.ANGLE_270
 
 ### Troubleshooting
 
-__Don't see any interstitials?__
-1. Make sure your device has a solid internet connection.
-2. Make sure you have an [active publishing campaign](http://help.chartboost.com/documentation/publishing) setup in the Chartboost dashboard.
+__Don't see any interstitials?__  
+1. Make sure your device has a solid internet connection.  
+2. Make sure you have an [active publishing campaign](http://help.chartboost.com/documentation/publishing) setup in the Chartboost dashboard.  
 
 ---
 Questions? We're happy to help &mdash; just drop us a line at <support@chartboost.com>.
