@@ -9,8 +9,8 @@ The Chartboost SDK is the cornerstone of our network: It provides the functional
 Adding the SDK to your games is quick and easy &mdash; you just need a few ingredients:
 - A Chartboost account
 - An app in your dashboard
-- [The latest SDK](/downloads/corona)
-- [An active campaign](/documentation/publishing)
+- [The latest SDK](http://help.chartboost.com/downloads/corona)
+- [An active campaign](http://help.chartboost.com/documentation/publishing)
 
 ---
 Requirements:
@@ -138,6 +138,12 @@ diff = cb.differences.ANGLE_90
 diff = cb.differences.ANGLE_180
 diff = cb.differences.ANGLE_270
 ```
+
+### Troubleshooting
+
+__Don't see any interstitials?__
+1. Make sure your device has a solid internet connection.
+2. Make sure you have an [active publishing campaign](http://help.chartboost.com/documentation/publishing) setup in the Chartboost dashboard.
 
 ---
 Questions? We're happy to help &mdash; just drop us a line at <support@chartboost.com>.
