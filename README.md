@@ -5,6 +5,10 @@ The Chartboost SDK is the cornerstone of our network: It provides the functional
 (01-02-2014) The Chartboost Corona SDK has been updated to support Corona graphics 2.0 in Corona v2013.2100 and up. A special thanks to @Fernker for doing an amazing job *all on his own* to make this update! Please discuss any issues with this update here on our github repo.
 (10-07-2013) The Chartboost Corona SDK is now mostly open sourced! Read about contributing [here](https://github.com/ChartBoost/corona-sdk/wiki/Contributing-to-SDK-Development) and check out known issues [here](https://github.com/ChartBoost/corona-sdk/issues).
 
+### Development Branch: [3.3](https://github.com/ChartBoost/corona-sdk/tree/development)
+
+Contribute to the next version of the Corona SDK! Read more in our [Creatives Update](https://github.com/ChartBoost/corona-sdk/issues/milestones) milestone.
+
 ---
 Adding the SDK to your games is quick and easy &mdash; you just need a few ingredients:
 - A Chartboost account
